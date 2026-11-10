@@ -1,0 +1,17 @@
+{
+  "name": "liquid-glass-switch-marketplace",
+  "description": "Installable liquid-glass switch and harness-adaptation skill.",
+  "owner": {
+    "name": "lym2128094758"
+  },
+  "plugins": [
+    {
+      "name": "liquid-glass-switch",
+      "source": {
+        "source": "github",
+        "repo": "lym2128094758/liquid-glass-switch"
+      },
+      "description": "Use and adapt a draggable liquid-glass segmented switch in editable web interfaces."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "liquid-glass-switch",
+  "displayName": "Liquid Glass Switch",
+  "version": "1.1.0",
+  "description": "A reusable liquid-glass switch and skill for adapting it to web apps and AI coding harnesses.",
+  "author": {
+    "name": "lym2128094758",
+    "url": "https://github.com/lym2128094758"
+  },
+  "homepage": "https://github.com/lym2128094758/liquid-glass-switch",
+  "repository": "https://github.com/lym2128094758/liquid-glass-switch",
+  "license": "MIT",
+  "keywords": ["glassmorphism", "segmented-control", "web-ui", "harness"],
+  "defaultEnabled": true
+}

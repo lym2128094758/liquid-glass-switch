@@ -1,0 +1,31 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "liquid-glass-switch",
+  "version": "1.1.0",
+  "description": "Use a draggable liquid-glass segmented switch in editable web apps and AI coding harness interfaces.",
+  "author": {
+    "name": "lym2128094758",
+    "url": "https://github.com/lym2128094758"
+  },
+  "repository": "https://github.com/lym2128094758/liquid-glass-switch",
+  "license": "MIT",
+  "keywords": ["glassmorphism", "segmented-control", "web-ui", "harness", "skill"],
+  "extensions": {
+    "com.openai": {
+      "onboardingSkill": "./skills/liquid-glass-switch/SKILL.md",
+      "interface": {
+        "displayName": "Liquid Glass Switch",
+        "shortDescription": "Add a draggable glass switch to web UIs",
+        "longDescription": "Bundles a reusable two-option liquid-glass switch and an agent skill for adapting it to editable web apps and AI coding harness interfaces.",
+        "developerName": "lym2128094758",
+        "category": "Development",
+        "websiteURL": "https://github.com/lym2128094758/liquid-glass-switch",
+        "brandColor": "#12313b",
+        "defaultPrompt": [
+          "Use Liquid Glass Switch to add a draggable two-option glass control to this web UI.",
+          "Adapt the Liquid Glass Switch to my harness framework and preserve its existing state flow."
+        ]
+      }
+    }
+  }
+}

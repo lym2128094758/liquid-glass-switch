@@ -1,0 +1,20 @@
+{
+  "name": "liquid-glass-switch-marketplace",
+  "interface": {
+    "displayName": "Liquid Glass Switch"
+  },
+  "plugins": [
+    {
+      "name": "liquid-glass-switch",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/lym2128094758/liquid-glass-switch.git"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Development"
+    }
+  ]
+}

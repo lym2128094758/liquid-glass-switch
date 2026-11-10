@@ -1,25 +1,42 @@
 {
-  "name": "liquid-glass-switch",
-  "version": "1.0.0",
+  "name": "dsh-liquid-glass-switch",
+  "version": "1.1.0",
   "private": false,
-  "description": "A dependency-free, draggable liquid glass segmented switch for the web.",
+  "description": "Portable liquid glass switch component and bundled harness-adaptation skill for DeepSeek Harness.",
   "license": "MIT",
-  "files": [
-    "liquid-controls.js",
-    "liquid-controls.css",
-    "SKILL.md",
-    "references/",
-    "README.md",
-    "demo.html"
-  ],
-  "scripts": {
-    "test": "node --test test.cjs"
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./liquid-controls.js": "./skills/liquid-glass-switch/assets/liquid-controls.js",
+    "./liquid-controls.css": "./skills/liquid-glass-switch/assets/liquid-controls.css"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lym2128094758/liquid-glass-switch.git"
+  },
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" }
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "skills/liquid-glass-switch",
+    "locale/*.json",
+    "icon.svg"
+  ],
   "keywords": [
     "glassmorphism",
     "segmented-control",
     "switch",
     "liquid-glass",
-    "vanilla-js"
+    "vanilla-js",
+    "ai-plugin",
+    "codex-plugin",
+    "claude-code-plugin",
+    "deepseek-harness-plugin"
   ]
 }

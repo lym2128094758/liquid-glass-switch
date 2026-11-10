@@ -1,12 +1,41 @@
-# Liquid Glass Switch
+# Liquid Glass Switch Plugin
 
-A dependency-free, two-option segmented switch with an Apple-inspired frosted-glass lens. Drag the lens to switch options, including repeated direction changes in one gesture. The lens follows the pointer with a bounded elastic overhang (20 px maximum), then settles onto the active option. It also supports reduced-motion preferences and keyboard-accessible native buttons.
+A cross-agent plugin package with the glass switch implementation, a reusable adaptation skill, and native installation entry points for Codex, Claude Code, and DeepSeek Harness (DSH).
 
-This folder also includes an installable Agent Skill (`SKILL.md`). Coding agents that support the Agent Skills format can use it to adapt the component to their host app or AI coding harness. Agents without skill support can still use the source and integration notes directly from this GitHub folder.
+The component is a dependency-free, two-option segmented switch with an Apple-inspired frosted-glass lens. Dragging supports continuous reversals and bounded elastic overhang (20 px maximum per side). It respects reduced-motion preferences and uses keyboard-accessible native buttons.
 
-## Quick start
+[简体中文](README.zh.md)
 
-Copy `liquid-controls.js` and `liquid-controls.css` into your project, then use this markup:
+## Install in Codex
+
+In the Codex desktop app, add this repository as a plugin marketplace:
+
+```sh
+codex plugin marketplace add lym2128094758/liquid-glass-switch
+```
+
+Then open Codex **Plugins**, select the Liquid Glass Switch marketplace, and install the plugin. Its bundled skill helps the agent adapt the actual component to a project or harness UI that you can edit.
+
+## Install in Claude Code
+
+```sh
+claude plugin marketplace add lym2128094758/liquid-glass-switch
+claude plugin install liquid-glass-switch@liquid-glass-switch-marketplace
+```
+
+## Install in DeepSeek Harness (DSH)
+
+For the CLI web profile:
+
+```sh
+dsh plugin --profile web add git+https://github.com/lym2128094758/liquid-glass-switch.git
+```
+
+For DSH Desktop, add the GitHub repository URL from its **Plugins** page. The DSH package registers the same bundled `liquid-glass-switch` skill in its agent skill catalog.
+
+## Use the component in a web project
+
+Copy `skills/liquid-glass-switch/assets/liquid-controls.js` and `liquid-controls.css` into the project and use this markup:
 
 ```html
 <div class="view-switch" role="group" aria-label="Display mode">
@@ -17,31 +46,21 @@ Copy `liquid-controls.js` and `liquid-controls.css` into your project, then use 
 <script defer src="liquid-controls.js"></script>
 ```
 
-The script adds the moving lens automatically. On each button's normal `click` handler, update `.active` and `aria-pressed` to match the selected option; the lens observes the active class and animates to it. Each control must contain exactly two `.view-button` elements.
+The script inserts the animated glass lens. Your app updates `.active` and `aria-pressed` from its own state in the buttons' click handlers. Use `data-theme="dark"` for dark glass. Keep ancestors from clipping the 20 px elastic overhang.
 
-The switch emits ordinary button clicks, so connect those buttons to whatever view or state your app controls. No framework or dependency is required.
+## Included files
 
-## Theme
+- `plugin.json`: portable Agent Plugins manifest for Codex-compatible hosts.
+- `.claude-plugin/`: Claude Code plugin and marketplace manifests.
+- `skills/liquid-glass-switch/`: shared Agent Skill, references, and copyable component assets.
+- `index.js` and `cordis.patch.yml`: DSH bundle that exposes the skill to DSH agents.
+- `demo.html`: standalone light/dark browser demo.
 
-The default style is a bright translucent glass capsule. Add `data-theme="dark"` to the switch for the dark glass appearance:
+**Important scope:** Codex and Claude plugins add the skill and component resources to the coding agent; they do not replace or restyle Codex/Claude's own application chrome. The agent uses the skill to change an editable web project or harness. DSH likewise exposes the skill to its agents through a native bundle plugin.
 
-```html
-<div class="view-switch" data-theme="dark" role="group" aria-label="Display mode">
-```
+## Development
 
-Override CSS custom properties or the component classes to match your design. Keep the switch positioned so its 20 px elastic overhang is not clipped by an ancestor (`overflow: visible`).
-
-## Demo
-
-Open `demo.html` directly in a browser. It demonstrates two independent switches and both light and dark themes.
-
-## Use with an AI coding agent
-
-Give your coding agent this folder or the GitHub link and ask it to install/use the `liquid-glass-switch` skill while adapting the switch to your harness. For platforms that load Agent Skills from a local directory, place this folder in the platform's skills directory. For Claude's uploaded skills, zip this folder so the ZIP contains `liquid-glass-switch/SKILL.md` and the component files. If the agent does not support skills, include `SKILL.md` and `references/harness-porting.md` in the prompt context.
-
-## Configuration
-
-The current elastic overhang limit is `20` CSS pixels per side. Change the `maxOverflow` constant in `liquid-controls.js` to adjust it. The lens uses a 70% drag threshold to select the other option; this is configurable as the `0.7` threshold in the same file.
+Open `demo.html` in a browser to preview the component. The elastic overhang defaults to `20` CSS pixels per side and the drag threshold is `70%`; both are in `skills/liquid-glass-switch/assets/liquid-controls.js`.
 
 ## License
 
